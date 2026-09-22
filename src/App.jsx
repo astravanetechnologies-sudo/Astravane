@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import "./App.css";
 import "./Dark.css";
 import logo from "./assets/astravane-logo.png";
-import logo1 from "./assets/logo1.png"
+import logo1 from "./assets/a.png"
 import { Sun, Moon, SunDim, SunDimIcon, SunIcon, SunMedium, MoonIcon } from "lucide-react";
  
 /* ---------------- small inline icon set (no external deps) ---------------- */
