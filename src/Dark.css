@@ -1,15 +1,11 @@
 /* ================================================================
    ASTRAVANE — DARK BLUE THEME
-   Import this AFTER App.css, then add className="dark" to the
-   top-level <div className="astravane"> to activate it, e.g.:
-
-   <div className="astravane dark"> ... </div>
-
-   To make dark mode the permanent default instead of a toggle,
-   just rename ".astravane.dark" below to ".astravane".
+   Active when <html> has the class "dark" (set by the theme switch
+   in the navigation and remembered between visits).
+   The colour values are the ones from the original dark theme.
    ================================================================ */
 
-.astravane.dark {
+:root.dark {
   --navy: #060A16;
   --blue: #5B8DFF;
   --blue-dark: #3E68D6;
@@ -22,138 +18,61 @@
   --border: rgba(255, 255, 255, 0.09);
   --shadow-sm: 0 2px 14px rgba(0, 0, 0, 0.35);
   --shadow-md: 0 14px 34px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 30px 70px rgba(0, 0, 0, 0.6);
 
-  background: var(--navy);
-  color: var(--text-dark);
-}
+  --tint-blue: rgba(91, 141, 255, 0.14);
+  --tint-purple: rgba(167, 139, 255, 0.14);
+  --tint-orange: rgba(255, 181, 112, 0.16);
+  --band: #060A16;
 
-/* page + section backgrounds that weren't pure var(--white) */
-.astravane.dark,
-.astravane.dark .hero {
-  background: var(--navy);
-}
-
-.astravane.dark .hero {
-  background:
-    radial-gradient(60% 60% at 85% 15%, rgba(91, 141, 255, 0.14) 0%, rgba(91, 141, 255, 0) 70%),
-    radial-gradient(50% 50% at 15% 85%, rgba(167, 139, 255, 0.12) 0%, rgba(167, 139, 255, 0) 70%),
-    var(--navy);
-}
-
-.astravane.dark .section,
-.astravane.dark .info-card,
-.astravane.dark .service-card,
-.astravane.dark .product-card,
-.astravane.dark .approach-card {
-  background: var(--white);
-}
-
-.astravane.dark [style*="background: var(--bg-light)"],
-.astravane.dark .products-bg,
-.astravane.dark #our-approach {
-  background: var(--bg-light) !important;
-}
-
-.astravane.dark .service-card .icon {
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.astravane.dark .industry-item .icon {
-  background: rgba(255, 255, 255, 0.05);
-}
-
-/* nav */
-.astravane.dark .nav {
-  background: rgba(6, 10, 22, 0.82);
-  border-bottom: 1px solid var(--border);
-}
-
-.astravane.dark .nav-logo .word,
-.astravane.dark .nav-links a {
-  color: var(--text-dark);
-}
-
-.astravane.dark .dark-toggle {
-  color: var(--text-dark);
-  border-color: var(--border);
-}
-.astravane.dark .dark-toggle:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: var(--blue);
-  color: var(--blue);
-}
-
-@media (max-width: 900px) {
-  .astravane.dark .nav-links {
-    background: var(--navy);
-    border-bottom: 1px solid var(--border);
-  }
-  .astravane.dark .nav-links a {
-    border-bottom: 1px solid var(--border);
-  }
-  .astravane.dark .nav-toggle span {
-    background: var(--text-dark);
-  }
-}
-
-/* buttons */
-.astravane.dark .btn-outline {
-  color: var(--text-dark);
-  border-color: var(--border);
-}
-.astravane.dark .btn-outline:hover {
-  border-color: var(--blue);
-  color: var(--blue);
-}
-
-/* logo strip */
-.astravane.dark .logostrip {
-  background: var(--bg-light);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-.astravane.dark .logostrip-item {
-  color: #A9B4D6;
-  opacity: 0.85;
-}
-
-/* cards / borders already inherit via var(--border) and var(--white) */
-.astravane.dark .info-card:hover,
-.astravane.dark .service-card:hover {
-  box-shadow: var(--shadow-md);
-  border-color: rgba(91, 141, 255, 0.35);
-}
-
-.astravane.dark .info-card .icon {
-  filter: saturate(1.1);
-}
-
-/* stat numbers / eyebrow gradients stay legible on dark */
-.astravane.dark .eyebrow,
-.astravane.dark .stat-item .num,
-.astravane.dark .hero-title .line2 {
-  filter: brightness(1.15);
-}
-
-/* CTA banner — keep white pill button but ensure contrast */
-.astravane.dark .cta-banner {
-  box-shadow: 0 20px 50px rgba(46, 94, 232, 0.25);
-}
-.astravane.dark .cta-banner .btn-primary {
-  background: #fff;
-  color: var(--navy);
-}
-
-/* footer already dark navy — align it with the new deeper navy */
-.astravane.dark .footer {
-  background: #04070F;
-  border-top: 1px solid var(--border);
-}
-.astravane.dark .footer-social a {
-  background: rgba(255, 255, 255, 0.06);
-}
-
-/* scrollbar (optional, nice touch on dark) */
-.astravane.dark {
+  color-scheme: dark;
   scrollbar-color: #2A3560 #0A1226;
 }
+
+:root.dark body { background: var(--navy); }
+:root.dark .astravane { background: var(--navy); }
+
+/* page sections sit on the deep navy; cards use the lighter surface */
+:root.dark .section-tint,
+:root.dark .clients { background: var(--bg-light); }
+
+:root.dark .nav { background: rgba(6, 10, 22, 0.82); }
+:root.dark .logo-mark { padding: 4px; border-radius: 10px; background: #fff; }
+:root.dark .nav-links { background-color: transparent; }
+@media (max-width: 1080px) {
+  :root.dark .nav-links { background: var(--navy); }
+}
+
+:root.dark .hero-bg {
+  background:
+    radial-gradient(46% 54% at 88% 12%, rgba(91, 141, 255, 0.18) 0%, rgba(91, 141, 255, 0) 70%),
+    radial-gradient(40% 46% at 8% 78%, rgba(167, 139, 255, 0.14) 0%, rgba(167, 139, 255, 0) 70%),
+    radial-gradient(30% 34% at 62% 92%, rgba(255, 181, 112, 0.08) 0%, rgba(255, 181, 112, 0) 70%);
+}
+
+:root.dark .btn-primary { color: #fff; background: linear-gradient(135deg, #2E5EE8 0%, #7B4DFF 100%); }
+:root.dark .btn-outline { background: transparent; }
+:root.dark .filters button.on,
+:root.dark .shot-tabs button.on,
+:root.dark .badge-soon,
+:root.dark .step-num { background: linear-gradient(135deg, #2E5EE8 0%, #7B4DFF 100%); }
+:root.dark .approach-card:nth-child(even) .step-num { background: linear-gradient(135deg, #7B4DFF, #FF9F43); }
+:root.dark .service-card:hover .icon { background: linear-gradient(135deg, #2E5EE8 0%, #7B4DFF 100%); }
+:root.dark .cta-banner { background: linear-gradient(135deg, #2E5EE8 0%, #7B4DFF 60%, #FF9F43 100%); box-shadow: 0 20px 50px rgba(46, 94, 232, 0.25); }
+
+:root.dark .badge-live { color: #5EE0A8; background: rgba(94, 224, 168, 0.12); }
+:root.dark .badge-status { color: #FFC37F; }
+
+/* gradient text stays legible on dark */
+:root.dark .eyebrow,
+:root.dark .stat dd,
+:root.dark .hero-title .line2 { filter: brightness(1.1); }
+
+:root.dark .frame { background: var(--white); }
+:root.dark .work-cover { background: linear-gradient(135deg, rgba(91, 141, 255, 0.16), rgba(167, 139, 255, 0.14)); }
+:root.dark .modal { background: var(--white); }
+:root.dark .modal-gallery { background: var(--navy); }
+:root.dark .stage-nav { background: var(--bg-light); }
+
+/* the footer goes one step deeper than the page */
+:root.dark .footer { background: #04070F; border-top: 1px solid var(--border); }

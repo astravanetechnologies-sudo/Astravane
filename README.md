@@ -1,19 +1,35 @@
-# React + Vite
+# Astravane Technologies website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The company website: a single page built with React and Vite.
 
-Currently, two official plugins are available:
+```
+npm install
+npm run dev       # local preview
+npm run build     # production build into dist/
+npm run lint
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Where the content lives
 
-## React Compiler
+Everything you are likely to edit is plain data in `src/data/`:
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+| File | What it holds |
+| --- | --- |
+| `site.js` | Company details (email, phone, address), navigation, services, industries, stats, approach steps, the client names in the scrolling strip |
+| `projects.js` | The portfolio: our products and client work, with descriptions, technology tags, links and pictures |
+| `careers.js` | Open vacancies |
+| `image-sizes.json` | Pixel size of every portfolio picture (lets the page reserve space before a picture loads) |
 
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
+The page sections are in `src/components/`. Colours are defined once at the top of `src/App.css`
+(light theme) and `src/Dark.css` (dark theme).
 
-## Expanding the ESLint configuration
+## Portfolio pictures
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Pictures are in `public/work/<project>/`. Each one has two files: `<name>.webp` (up to 1920 px wide) and
+`<name>-sm.webp` (up to 960 px wide, used on cards and thumbnails).
+
+To add a project, put its pictures in a new folder there and add an entry to `projects.js`. The first
+picture in the list is the cover. If a picture has no entry in `image-sizes.json` the page still works;
+it just cannot reserve the exact space in advance.
+
+A project with a `url` gets a "Live" badge and a "Visit site" link.
