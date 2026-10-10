@@ -1,6 +1,7 @@
 import { ArrowRight, Compass, Gem, Rocket } from "lucide-react";
 import Icon from "./icons";
-import { approach, industries, services, values } from "../data/site";
+import { projects } from "../data/projects";
+import { alsoServing, approach, industries, services, technologies, values } from "../data/site";
 
 export function About() {
   return (
@@ -58,26 +59,51 @@ export function Services() {
             </article>
           ))}
         </div>
+        <div className="tech reveal">
+          <h3>Technologies we deliver with</h3>
+          <ul>
+            {technologies.map((t) => <li key={t}>{t}</li>)}
+          </ul>
+        </div>
       </div>
     </section>
   );
 }
 
-export function Industries() {
+/* Every industry card is backed by the projects delivered in it. */
+const sectors = industries.map((ind) => ({ ...ind, items: projects.filter((p) => p.industry === ind.label) }));
+
+export function Industries({ onOpen }) {
   return (
     <section className="section" id="industries">
       <div className="container">
         <div className="section-head reveal">
           <span className="eyebrow">Industries We Serve</span>
           <h2 className="h2">Built for the Way Your Sector Works</h2>
+          <p className="lead">Every sector below is backed by systems, sites or apps we have delivered. Open any of them to see the work.</p>
         </div>
         <ul className="industries-grid">
-          {industries.map((ind) => (
+          {sectors.map((ind) => (
             <li className="industry reveal" key={ind.label}>
-              <span className="icon"><Icon name={ind.icon} size={22} /></span>
-              {ind.label}
+              <div className="industry-head">
+                <span className="icon"><Icon name={ind.icon} size={22} /></span>
+                <h3>{ind.label}</h3>
+              </div>
+              <div className="industry-work">
+                {ind.items.map((p) => (
+                  <button key={p.slug} type="button" onClick={() => onOpen(p, 0)}>{p.title}</button>
+                ))}
+              </div>
             </li>
           ))}
+          <li className="industry industry-also reveal">
+            <h3>Also serving</h3>
+            <ul>
+              {alsoServing.map((s) => (
+                <li key={s.label}><Icon name={s.icon} size={18} />{s.label}</li>
+              ))}
+            </ul>
+          </li>
         </ul>
       </div>
     </section>

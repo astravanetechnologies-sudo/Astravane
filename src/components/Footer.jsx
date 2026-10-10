@@ -1,7 +1,7 @@
 import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
 import { Logo } from "./Nav";
-import { products } from "../data/projects";
-import { company, industries, roadmap, services } from "../data/site";
+import { showcase } from "../data/projects";
+import { company, industries, services } from "../data/site";
 
 const tel = company.phone.replace(/[^+\d]/g, "");
 
@@ -42,14 +42,13 @@ export default function Footer() {
           <div className="footer-col">
             <h3>Services</h3>
             <ul>
-              {services.slice(0, 5).map((s) => <li key={s.title}><a href="#services">{s.title}</a></li>)}
+              {services.slice(0, 6).map((s) => <li key={s.title}><a href="#services">{s.title}</a></li>)}
             </ul>
           </div>
           <div className="footer-col">
-            <h3>Products</h3>
+            <h3>Platforms</h3>
             <ul>
-              {products.map((p) => <li key={p.slug}><a href="#products">{p.title}</a></li>)}
-              {roadmap.map((r) => <li key={r.title}><a href="#products">{r.title}</a></li>)}
+              {showcase.slice(0, 6).map((p) => <li key={p.slug}><a href="#products">{p.title}</a></li>)}
             </ul>
           </div>
           <div className="footer-col">

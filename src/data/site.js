@@ -12,7 +12,7 @@ export const company = {
 export const navItems = [
   { id: "about-us", label: "About" },
   { id: "services", label: "Services" },
-  { id: "products", label: "Products" },
+  { id: "products", label: "Platforms" },
   { id: "work", label: "Work" },
   { id: "industries", label: "Industries" },
   { id: "approach", label: "Approach" },
@@ -58,22 +58,38 @@ export const services = [
   { icon: "api", title: "System Integration & APIs", desc: "Seamless integration of systems and APIs for connected experiences." },
 ];
 
-/* Product family announced on the original site; these are still on the roadmap. */
-export const roadmap = [
-  { icon: "ai", title: "Astravane AI", desc: "AI-powered analytics and decision-support solutions.", color: "linear-gradient(135deg,#2E5EE8,#7B4DFF)" },
-  { icon: "box", title: "Astravane ERP", desc: "A modern, modular ERP platform to manage your entire business easily.", color: "linear-gradient(135deg,#7B4DFF,#B44DFF)" },
-  { icon: "heart", title: "Astravane Health", desc: "Digital solutions for healthcare providers, billing and management.", color: "linear-gradient(135deg,#FF5C7A,#FF9F43)" },
-  { icon: "pie", title: "Astravane BI", desc: "Transform your data into actionable insights through smart dashboards.", color: "linear-gradient(135deg,#2E5EE8,#31C6C6)" },
+/* Technologies used across the projects in the portfolio. */
+export const technologies = [
+  "React", "Next.js", "TypeScript", "Node.js", "Flutter", "React Native", "Firebase", "Supabase",
+  "PostgreSQL", "Drizzle ORM", "Tailwind CSS", "WordPress", "Elementor", "Shopify", "Figma", "Google Maps",
 ];
 
+/* The four solution suites, each backed by systems from the portfolio (project slugs from projects.js). */
+export const suites = [
+  { icon: "box", title: "Astravane ERP", desc: "Sales, purchasing, stock, payroll and accounts managed in one system.", color: "linear-gradient(135deg,#7B4DFF,#B44DFF)", projects: ["bin-sultan-erp", "mechamanpro", "management-suite"] },
+  { icon: "heart", title: "Astravane Health", desc: "Digital solutions for healthcare providers, billing and management.", color: "linear-gradient(135deg,#FF5C7A,#FF9F43)", projects: ["emr", "access-ability-assist", "the-animal-clinic"] },
+  { icon: "ai", title: "Astravane AI", desc: "AI-powered assistants, analytics and decision support inside the product.", color: "linear-gradient(135deg,#2E5EE8,#7B4DFF)", projects: ["mechamanpro", "ai-fitex"] },
+  { icon: "pie", title: "Astravane BI", desc: "Dashboards and reports that turn daily operations into clear numbers.", color: "linear-gradient(135deg,#2E5EE8,#31C6C6)", projects: ["bin-sultan-erp", "emr", "mechamanpro"] },
+];
+
+/* Industries with delivered work. The projects under each one come from the `industry` field in projects.js. */
 export const industries = [
-  { icon: "medical", label: "Healthcare" },
-  { icon: "bank", label: "Banking & Finance" },
-  { icon: "factory", label: "Manufacturing" },
   { icon: "cart", label: "Retail & E-commerce" },
-  { icon: "building", label: "Real Estate" },
+  { icon: "medical", label: "Healthcare" },
+  { icon: "car", label: "Automotive" },
+  { icon: "building", label: "Construction & Real Estate" },
+  { icon: "utensils", label: "Food & Travel" },
+  { icon: "dumbbell", label: "Fitness & Wellness" },
+  { icon: "clapper", label: "Media & Entertainment" },
+  { icon: "cap", label: "Education & Productivity" },
+  { icon: "factory", label: "Manufacturing" },
+  { icon: "store", label: "Local Services" },
+];
+
+/* Sectors the company also serves. */
+export const alsoServing = [
+  { icon: "bank", label: "Banking & Finance" },
   { icon: "gov", label: "Government" },
-  { icon: "cap", label: "Education" },
   { icon: "truck", label: "Logistics" },
 ];
 

@@ -33,3 +33,13 @@ picture in the list is the cover. If a picture has no entry in `image-sizes.json
 it just cannot reserve the exact space in advance.
 
 A project with a `url` gets a "Live" badge and a "Visit site" link.
+
+Each project also has:
+
+- `kind` (`platform`, `webapp`, `site` or `mobile`): decides which filter and which "What we build" tile it appears under.
+- `industry`: must match one of the industry names in `site.js`; it places the project in the Industries section.
+
+Every project is added to the moving wall in the hero automatically. The wall uses a small thumbnail of the cover,
+`<cover>-xs.webp` (520 × 325). If that file is missing, the normal cover is shown instead.
+
+The systems shown in the Platforms section, and their order, are the `showcase` list at the bottom of `projects.js`.

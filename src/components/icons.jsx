@@ -1,7 +1,7 @@
 import {
-  Banknote, Bot, Boxes, BrainCircuit, Building2, ChartColumn, ChartPie, CheckCheck, Cloud, Code, Compass, Factory,
-  GraduationCap, Hammer, HeartPulse, Hospital, Landmark, Layers, MonitorSmartphone, RefreshCw, Rocket, Search,
-  ShieldCheck, ShoppingCart, Sparkles, Truck, Users, Workflow,
+  Banknote, Bot, Boxes, BrainCircuit, Building2, Car, ChartColumn, ChartPie, CheckCheck, Clapperboard, Cloud, Code, Compass,
+  Dumbbell, Factory, GraduationCap, Hammer, HeartPulse, Hospital, Landmark, Layers, MonitorSmartphone, RefreshCw, Rocket,
+  Search, ShieldCheck, ShoppingCart, Sparkles, Store, Truck, Users, Utensils, Workflow,
 } from "lucide-react";
 
 /* Icon names used by the content in src/data. */
@@ -35,6 +35,11 @@ const icons = {
   gov: Landmark,
   cap: GraduationCap,
   truck: Truck,
+  car: Car,
+  utensils: Utensils,
+  dumbbell: Dumbbell,
+  clapper: Clapperboard,
+  store: Store,
 };
 
 export default function Icon({ name, size = 22, ...rest }) {

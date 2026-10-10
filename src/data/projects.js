@@ -14,22 +14,22 @@ function gallery(slug, items) {
 
 export const categories = [
   { id: "all", label: "All work" },
-  { id: "product", label: "Our products" },
-  { id: "site", label: "Websites & stores" },
+  { id: "platform", label: "Platforms & ERPs" },
   { id: "webapp", label: "Web apps" },
+  { id: "site", label: "Websites & stores" },
   { id: "mobile", label: "Mobile apps" },
 ];
 
 /* A project with a `url` shows a "Live" badge and a "Visit site" link. Client sites that no longer
    open are listed without one; the old address is kept in a comment beside each. */
 export const projects = [
-  /* ------------------------------------------------------------ Astravane products */
+  /* ------------------------------------------------------------ Platforms and business systems */
   {
     slug: "mechamanpro",
     title: "MechaManPro",
-    kind: "product",
-    label: "Astravane product",
-    status: "Beta",
+    kind: "platform",
+    label: "Automotive platform",
+    industry: "Automotive",
     frame: "browser",
     tagline: "Workshop management for garages and MOT centres",
     summary: "A workshop management platform that follows every vehicle from check-in to invoice.",
@@ -56,9 +56,9 @@ export const projects = [
   {
     slug: "emr",
     title: "Hospital Management System",
-    kind: "product",
-    label: "Astravane product",
-    status: "In development",
+    kind: "platform",
+    label: "Healthcare platform",
+    industry: "Healthcare",
     frame: "browser",
     tagline: "One patient record across the whole hospital",
     summary: "An integrated hospital information system (HMIS / EMR) covering registration, outpatient care, billing and medical records.",
@@ -85,12 +85,12 @@ export const projects = [
     ]),
   },
 
-  /* ------------------------------------------------------------ Business systems built for clients */
   {
     slug: "bin-sultan-erp",
     title: "Bin Sultan Fabrics ERP",
-    kind: "webapp",
-    label: "ERP system",
+    kind: "platform",
+    label: "Retail ERP",
+    industry: "Retail & E-commerce",
     frame: "browser",
     summary: "An ERP for a fabric retailer and wholesaler that runs sales, purchasing, stock, customers, staff and accounts in one system.",
     points: [
@@ -99,6 +99,7 @@ export const projects = [
       "Products and pricing with margins, stock levels and alerts, a bargaining tracker, daily expenses, payroll and attendance.",
       "Dashboard and reports in Pakistani rupees, with separate administrator and cashier roles.",
     ],
+    features: ["Point of sale", "Sales & purchase ledgers", "Inventory & stock alerts", "Customer & supplier credit", "Payroll & attendance", "Bargaining tracker", "Daily expenses", "Role-based access"],
     tags: ["Next.js", "React", "TypeScript", "Firebase", "Tailwind CSS"],
     images: gallery("bin-sultan-erp", [
       ["01-dashboard", "Dashboard: revenue, orders, profit and monthly sales"],
@@ -122,6 +123,7 @@ export const projects = [
     title: "Alpha Builders Group",
     kind: "site",
     label: "Company website",
+    industry: "Construction & Real Estate",
     frame: "browser",
     url: "https://alphabuildersgroup.com/",
     address: "alphabuildersgroup.com",
@@ -147,6 +149,7 @@ export const projects = [
     title: "Zero/Six Consulting",
     kind: "site",
     label: "Company website",
+    industry: "Construction & Real Estate",
     frame: "browser",
     url: "https://www.z6consulting.com/",
     address: "z6consulting.com",
@@ -173,6 +176,7 @@ export const projects = [
     title: "M Luqman Attar House",
     kind: "site",
     label: "Online store",
+    industry: "Retail & E-commerce",
     frame: "browser",
     url: "https://mluqmanattarhouse.com/",
     address: "mluqmanattarhouse.com",
@@ -199,6 +203,7 @@ export const projects = [
     title: "Access Ability Assist",
     kind: "site",
     label: "Company website",
+    industry: "Healthcare",
     frame: "browser",
     url: "https://accessabilityassist.com.au/",
     address: "accessabilityassist.com.au",
@@ -223,6 +228,7 @@ export const projects = [
     title: "Work Supplies",
     kind: "site",
     label: "Online store",
+    industry: "Retail & E-commerce",
     frame: "plain",
     // Not linked: https://worksupplies.net.au/ answered with a security block page when checked on 10 Oct 2026.
     // Add  url: "https://worksupplies.net.au/", address: "worksupplies.net.au"  here if it opens normally for you.
@@ -243,6 +249,7 @@ export const projects = [
     title: "Mertzon Construction",
     kind: "site",
     label: "Company website",
+    industry: "Construction & Real Estate",
     frame: "browser",
     // Not linked: the old preview address https://mertzon.previewbiz.com/ no longer opens (checked 10 Oct 2026).
     summary: "Website for a Houston construction company, presenting its services and project delivery systems.",
@@ -263,6 +270,7 @@ export const projects = [
     title: "The Animal Clinic",
     kind: "site",
     label: "Company website",
+    industry: "Healthcare",
     frame: "browser",
     // Not linked: the old preview address https://animalclinic.previewbiz.com/ no longer opens (checked 10 Oct 2026).
     summary: "Website for a long-established veterinary clinic in Galveston, Texas.",
@@ -283,6 +291,7 @@ export const projects = [
     title: "TAOK Visuals",
     kind: "site",
     label: "Company website",
+    industry: "Media & Entertainment",
     frame: "browser",
     // Not linked: https://toakvisual.com/ is no longer registered (checked 10 Oct 2026).
     summary: "Website for a veteran-owned creative media studio with rentable studio space.",
@@ -303,6 +312,7 @@ export const projects = [
     title: "Ricky's Dry Cleaners",
     kind: "site",
     label: "Company website",
+    industry: "Local Services",
     frame: "browser",
     // Not linked: https://rickydrycleaners.com/ is no longer registered (checked 10 Oct 2026).
     summary: "Website for a Houston dry cleaner offering pick-up and delivery.",
@@ -325,12 +335,14 @@ export const projects = [
     title: "Bookify",
     kind: "webapp",
     label: "Web app",
+    industry: "Education & Productivity",
     frame: "plain",
     summary: "An online library where readers browse by genre, read or download books and manage their account.",
     points: [
       "Book catalogue organised by genre with detail pages, reading and download options.",
       "Reader accounts with sign-in and a chat room.",
     ],
+    features: ["Genre catalogue", "Read online", "PDF downloads", "Reader accounts", "Chat room"],
     tags: ["React", "Node.js"],
     images: gallery("bookify", [
       ["01-cover", "Bookify overview", "cover"],
@@ -344,13 +356,15 @@ export const projects = [
     slug: "wheels-and-deals",
     title: "Wheels & Deals",
     kind: "webapp",
-    label: "Web app",
+    label: "Marketplace",
+    industry: "Automotive",
     frame: "plain",
     summary: "A used-car marketplace: search listings, sell a car and browse by make.",
     points: [
       "Search and browse used cars by make, with a bold, sporty look.",
       "Seller flow for listing a car, plus buyer and seller accounts.",
     ],
+    features: ["Used-car search", "Browse by make", "Sell-your-car flow", "Buyer & seller accounts"],
     tags: ["Marketplace", "Web app"],
     images: gallery("wheels-and-deals", [
       ["01-cover", "Wheels & Deals overview", "cover"],
@@ -364,13 +378,15 @@ export const projects = [
     slug: "krayana-near-me",
     title: "KrayanaNearme",
     kind: "webapp",
-    label: "Web app",
+    label: "Marketplace",
+    industry: "Retail & E-commerce",
     frame: "plain",
     summary: "A grocery platform that helps shoppers find nearby stores and order everyday items.",
     points: [
       "Nearby shop discovery with featured stores and top-rated products.",
       "Product browsing with filters, product pages and cart.",
     ],
+    features: ["Nearby shop discovery", "Featured stores", "Product filters", "Cart"],
     tags: ["Location-based", "Google Maps", "Firebase"],
     images: gallery("krayana-near-me", [
       ["01-cover", "KrayanaNearme overview", "cover"],
@@ -384,6 +400,7 @@ export const projects = [
     title: "Play Prism",
     kind: "webapp",
     label: "Web app",
+    industry: "Media & Entertainment",
     frame: "plain",
     summary: "A gaming lounge web app: browse PC and console titles, book play sessions and shop accessories.",
     points: [
@@ -403,7 +420,8 @@ export const projects = [
     slug: "ai-fitex",
     title: "AI Fitex",
     kind: "webapp",
-    label: "Web app",
+    label: "AI web app",
+    industry: "Fitness & Wellness",
     frame: "plain",
     summary: "An AI fitness trainer on the web, with daily tips, chat-style coaching and subscriptions.",
     points: ["AI trainer chat, daily fitness tips and subscription plans."],
@@ -413,11 +431,13 @@ export const projects = [
   {
     slug: "management-suite",
     title: "Management Suite",
-    kind: "webapp",
-    label: "Web app",
+    kind: "platform",
+    label: "Manufacturing system",
+    industry: "Manufacturing",
     frame: "plain",
     summary: "A production management and planning system with dashboards for planning and progress.",
     points: ["Production planning dashboards and progress tracking."],
+    features: ["Production planning", "Progress dashboards"],
     tags: ["Dashboard", "Operations"],
     images: gallery("management-suite", [["01-cover", "Management Suite overview", "cover"]]),
   },
@@ -426,6 +446,7 @@ export const projects = [
     title: "Mealover",
     kind: "webapp",
     label: "Web app",
+    industry: "Food & Travel",
     frame: "plain",
     summary: "A food-ordering web app with restaurant listings, menus and a cart.",
     points: ["Restaurant listings by cuisine, menus, deals and cart."],
@@ -439,6 +460,7 @@ export const projects = [
     title: "FitFlex",
     kind: "mobile",
     label: "Mobile app",
+    industry: "Fitness & Wellness",
     frame: "plain",
     summary: "A fitness app with trainer profiles, appointment booking and personalised meal plans.",
     points: [
@@ -459,6 +481,7 @@ export const projects = [
     title: "Morbal",
     kind: "mobile",
     label: "Mobile app",
+    industry: "Retail & E-commerce",
     frame: "plain",
     summary: "A shopping app for bags and apparel with catalogue, product pages and checkout.",
     points: [
@@ -479,6 +502,7 @@ export const projects = [
     title: "Flowo",
     kind: "mobile",
     label: "Mobile app",
+    industry: "Retail & E-commerce",
     frame: "plain",
     summary: "A flower shop app with catalogue, product details, cart and store inventory tools.",
     points: [
@@ -501,6 +525,7 @@ export const projects = [
     title: "CAFT",
     kind: "mobile",
     label: "Mobile app",
+    industry: "Automotive",
     frame: "plain",
     summary: "A vehicle tracking app with live location, trip history, fuel and performance summaries.",
     points: [
@@ -520,6 +545,7 @@ export const projects = [
     title: "Funitur",
     kind: "mobile",
     label: "Mobile app",
+    industry: "Retail & E-commerce",
     frame: "plain",
     summary: "A furniture shopping app with categories, product pages and add to cart.",
     points: ["Browse by category, view product details and colour options, add to cart."],
@@ -537,6 +563,7 @@ export const projects = [
     title: "Eat Bite",
     kind: "mobile",
     label: "Mobile app",
+    industry: "Food & Travel",
     frame: "plain",
     summary: "A restaurant discovery app with trending places, categories and profiles.",
     points: ["Trending restaurants, cuisine categories, friends activity and user profiles."],
@@ -548,6 +575,7 @@ export const projects = [
     title: "Listex",
     kind: "mobile",
     label: "Mobile app",
+    industry: "Education & Productivity",
     frame: "plain",
     summary: "A task and to-do app with daily lists and progress tracking.",
     points: ["Daily task lists, custom lists and completion progress."],
@@ -559,6 +587,7 @@ export const projects = [
     title: "Travelos",
     kind: "mobile",
     label: "Mobile app",
+    industry: "Food & Travel",
     frame: "plain",
     summary: "A travel app for discovering destinations and booking stays.",
     points: ["Destination discovery, recommendations and stay booking."],
@@ -567,4 +596,18 @@ export const projects = [
   },
 ];
 
-export const products = projects.filter((p) => p.kind === "product");
+/* Small fixed-shape cover used by the moving wall in the hero and the "What we build" tiles. */
+for (const p of projects) p.thumb = p.images[0].sm.replace("-sm.webp", "-xs.webp");
+
+/** For <img onError>: a project without the small thumbnail shows its normal cover instead. */
+export function fallbackCover(event, project) {
+  const img = event.currentTarget;
+  if (!img.src.endsWith(project.images[0].sm)) img.src = project.images[0].sm;
+}
+
+export const bySlug = Object.fromEntries(projects.map((p) => [p.slug, p]));
+
+/* Systems featured in the Platforms section, in order. */
+export const showcase = ["mechamanpro", "emr", "bin-sultan-erp", "management-suite", "wheels-and-deals", "bookify", "krayana-near-me"].map((slug) => bySlug[slug]);
+
+export const totalPictures = projects.reduce((n, p) => n + p.images.length, 0);

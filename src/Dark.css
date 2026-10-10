@@ -54,7 +54,6 @@
 :root.dark .btn-outline { background: transparent; }
 :root.dark .filters button.on,
 :root.dark .shot-tabs button.on,
-:root.dark .badge-soon,
 :root.dark .step-num { background: linear-gradient(135deg, #2E5EE8 0%, #7B4DFF 100%); }
 :root.dark .approach-card:nth-child(even) .step-num { background: linear-gradient(135deg, #7B4DFF, #FF9F43); }
 :root.dark .service-card:hover .icon { background: linear-gradient(135deg, #2E5EE8 0%, #7B4DFF 100%); }

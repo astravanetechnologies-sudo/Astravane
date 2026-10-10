@@ -3,6 +3,7 @@ import "./App.css";
 import "./Dark.css";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
+import Overview from "./components/Overview";
 import { About, Approach, Industries, Services } from "./components/About";
 import Products from "./components/Products";
 import Work from "./components/Work";
@@ -23,6 +24,7 @@ function storedTheme() {
 export default function App() {
   const [dark, setDark] = useState(storedTheme);
   const [viewing, setViewing] = useState(null);
+  const [filter, setFilter] = useState("all");
 
   /* The theme class sits on <html> so the page background and the project dialog follow it too. */
   useEffect(() => {
@@ -36,17 +38,24 @@ export default function App() {
 
   const openProject = (project, index = 0) => setViewing({ project, index });
 
+  /* Used by the hero and the overview tiles: show one kind of work and go to the Work section. */
+  const browse = (kind) => {
+    setFilter(kind);
+    document.getElementById("work")?.scrollIntoView();
+  };
+
   return (
     <div className="astravane">
       <a className="skip-link" href="#main">Skip to content</a>
       <Nav dark={dark} onToggleTheme={() => setDark((d) => !d)} />
       <main id="main">
-        <Hero />
+        <Hero onBrowse={browse} />
+        <Overview onBrowse={browse} />
         <About />
         <Services />
         <Products onOpen={openProject} />
-        <Work onOpen={openProject} />
-        <Industries />
+        <Work filter={filter} onFilter={setFilter} onOpen={openProject} />
+        <Industries onOpen={openProject} />
         <Approach />
         <Careers />
         <CallToAction />

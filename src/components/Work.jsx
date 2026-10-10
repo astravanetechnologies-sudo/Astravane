@@ -3,7 +3,7 @@ import { ArrowRight, ArrowUpRight, Images } from "lucide-react";
 import { BrowserFrame, Picture } from "./Frame";
 import { categories, projects } from "../data/projects";
 
-const FIRST_PAGE = 9;
+const FIRST_PAGE = 12;
 const cardSizes = "(max-width: 680px) 92vw, (max-width: 1060px) 46vw, 400px";
 
 function ProjectCard({ project, onOpen }) {
@@ -26,7 +26,6 @@ function ProjectCard({ project, onOpen }) {
       <div className="work-body">
         <div className="work-top">
           <span className="work-label">{project.label}</span>
-          {project.status && <span className="badge badge-status"><i aria-hidden="true" />{project.status}</span>}
           {project.url && <span className="badge badge-live"><i aria-hidden="true" />Live</span>}
         </div>
         <h3 className="work-title">{project.title}</h3>
@@ -49,9 +48,10 @@ function ProjectCard({ project, onOpen }) {
   );
 }
 
-export default function Work({ onOpen }) {
-  const [filter, setFilter] = useState("all");
-  const [expanded, setExpanded] = useState(false);
+/* The chosen category lives in App, so other sections can jump here with a category already selected. */
+export default function Work({ filter, onFilter, onOpen }) {
+  const [expandedFor, setExpandedFor] = useState(null);
+  const expanded = expandedFor === filter;
   const list = filter === "all" ? projects : projects.filter((p) => p.kind === filter);
   const visible = expanded ? list : list.slice(0, FIRST_PAGE);
   const count = (id) => (id === "all" ? projects.length : projects.filter((p) => p.kind === id).length);
@@ -69,13 +69,7 @@ export default function Work({ onOpen }) {
 
         <div className="filters reveal" role="group" aria-label="Filter projects">
           {categories.map((c) => (
-            <button
-              key={c.id}
-              type="button"
-              className={filter === c.id ? "on" : ""}
-              aria-pressed={filter === c.id}
-              onClick={() => { setFilter(c.id); setExpanded(false); }}
-            >
+            <button key={c.id} type="button" className={filter === c.id ? "on" : ""} aria-pressed={filter === c.id} onClick={() => onFilter(c.id)}>
               {c.label} <span>{count(c.id)}</span>
             </button>
           ))}
@@ -87,7 +81,7 @@ export default function Work({ onOpen }) {
 
         {list.length > FIRST_PAGE && (
           <div className="section-cta">
-            <button type="button" className="btn btn-outline" onClick={() => setExpanded((e) => !e)} aria-expanded={expanded}>
+            <button type="button" className="btn btn-outline" onClick={() => setExpandedFor(expanded ? null : filter)} aria-expanded={expanded}>
               {expanded ? "Show fewer projects" : `Show all ${list.length} projects`}
             </button>
           </div>
