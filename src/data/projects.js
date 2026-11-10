@@ -44,13 +44,6 @@ export const projects = [
       ["01-dashboard", "Dashboard: revenue, bays, bookings and stock alerts at a glance"],
       ["02-live-board", "Live board: every vehicle by workshop stage"],
       ["03-mechanic-portal", "Mechanic portal: MOT checklist, parts and labour"],
-      ["04-appointments", "Appointments: week view and upcoming bookings"],
-      ["09-ai-diagnostics", "AI diagnostics: assistant with workshop context"],
-      ["08-economy-tracker", "Economy tracker: income, expenses, profit and cash"],
-      ["05-customers", "Customers: loyalty tiers, vehicles and spend"],
-      ["06-inventory", "Inventory: stock levels and restock alerts"],
-      ["07-billing", "Billing: point of sale and pending payments"],
-      ["10-reception", "Reception: vehicle check-in"],
     ]),
   },
   {
@@ -71,49 +64,52 @@ export const projects = [
     tags: ["Next.js", "React", "TypeScript", "PostgreSQL", "Drizzle ORM", "Tailwind CSS"],
     images: gallery("emr", [
       ["04-opd", "Outpatient queue: triage, vitals and encounter status"],
-      ["03-queue", "Queue management: live front office queue"],
-      ["02-appointments", "Appointments: front office scheduling"],
       ["06-diagnostics", "Diagnostics: lab and radiology orders"],
-      ["07-pharmacy", "Pharmacy: referrals and e-prescriptions"],
       ["09-billing", "Billing: invoices and accounts receivable"],
-      ["01-dashboard", "Overview: system statistics and core modules"],
-      ["05-clinical-notes", "Clinical notes: SOAP format"],
-      ["08-patient", "Patient record: demographics, contacts and medical information"],
-      ["10-medical-records", "Medical records: patient registry"],
-      ["11-icu", "Critical care: ICU census and acuity"],
-      ["12-cssd", "Sterile supply: CSSD tracking"],
     ]),
   },
 
   {
-    slug: "bin-sultan-erp",
-    title: "Bin Sultan Fabrics ERP",
+    slug: "shusui-erp",
+    title: "Shusui-V4 ERP",
     kind: "platform",
-    label: "Retail ERP",
+    label: "ERP",
     industry: "Retail & E-commerce",
     frame: "browser",
-    summary: "An ERP for a fabric retailer and wholesaler that runs sales, purchasing, stock, customers, staff and accounts in one system.",
+    summary: "An ERP for retailers and wholesalers that runs sales, purchasing, stock and accounts across every shop and warehouse in one system.",
     points: [
-      "Point of sale built for fabric: per-yard and per-piece pricing, free-item and trade discounts, credit sales and invoices.",
-      "Purchasing with supplier and customer ledgers, payments, returns and credit notes.",
-      "Products and pricing with margins, stock levels and alerts, a bargaining tracker, daily expenses, payroll and attendance.",
-      "Dashboard and reports in Pakistani rupees, with separate administrator and cashier roles.",
+      "Point of sale with barcode search, pricing per metre, yard or piece, held sales, bill discounts and sales tax.",
+      "Quotations, sales orders, invoices, receipts and returns, plus purchase orders, goods receipts, supplier bills and payments.",
+      "Stock on hand across every warehouse and shop at moving-average cost, with rolls and batches, reorder levels and reorder suggestions.",
+      "Dashboard and reports: sales, gross and net profit, expenses, receivables, payables, cash and bank, and stock value.",
     ],
-    features: ["Point of sale", "Sales & purchase ledgers", "Inventory & stock alerts", "Customer & supplier credit", "Payroll & attendance", "Bargaining tracker", "Daily expenses", "Role-based access"],
+    features: ["Point of sale", "Quotations & sales orders", "Invoices & receipts", "Purchasing & supplier bills", "Multi-warehouse stock", "Rolls & batches", "Reorder suggestions", "Profit & cash dashboard"],
     tags: ["Next.js", "React", "TypeScript", "Firebase", "Tailwind CSS"],
-    images: gallery("bin-sultan-erp", [
-      ["01-dashboard", "Dashboard: revenue, orders, profit and monthly sales"],
-      ["02-pos", "Point of sale: product search, cart and checkout"],
-      ["03-sales-ledger", "Sales ledger: paid, discounted and credit sales"],
-      ["04-products", "Products and pricing: cost, price range, margin and stock"],
-      ["05-inventory", "Inventory: stock levels, movements and alerts"],
-      ["06-customers", "Customers: balances, value and purchase history"],
-      ["07-purchasing-ledger", "Purchasing ledger: supplier invoices and payments"],
-      ["08-bargaining", "Bargaining tracker: negotiated discounts by product and staff"],
-      ["09-expenses", "Daily expenses"],
-      ["10-employees", "Employees: directory, attendance and payroll"],
-      ["11-returns", "Returns and credit notes"],
-      ["12-roles", "Role management: administrators and cashiers"],
+    images: gallery("shusui-erp", [
+      ["01-dashboard", "Dashboard: sales, profit, receivables, cash and stock value"],
+      ["02-pos", "Point of sale: product search, cart and payment"],
+      ["03-stock-on-hand", "Stock on hand: quantities and value in every warehouse"],
+    ]),
+  },
+  {
+    slug: "car-auction-platform",
+    title: "Japanese Car Auction Platform",
+    kind: "platform",
+    label: "Auction platform",
+    industry: "Automotive",
+    frame: "browser",
+    summary: "A platform for Japanese used-car exporters: each licensee runs its own buyer portal and back office, and a command centre oversees every portal.",
+    points: [
+      "Buyer portal: auction lots, stock, bids and favourites, and a step-by-step tracker for every car won, from invoice and payment to shipping and documents.",
+      "Back office: bid desk, purchases and shipping, payments with telegraphic transfer checks, buyers, inbox and email. Each step updates the buyer's timeline and notifies them.",
+      "Command centre: licensees and licence billing, live activity, bids, win rate and value won across every portal.",
+    ],
+    features: ["Auction lots & bidding", "Bid desk", "Purchase tracking", "Shipping & documents", "Invoices & TT payments", "Buyer notifications", "Multi-licensee portals", "Licence billing"],
+    tags: ["Multi-tenant", "Buyer portal", "Back office"],
+    images: gallery("car-auction-platform", [
+      ["01-buyer-purchase", "Buyer portal: a won car from auction to delivery"],
+      ["02-back-office", "Back office: purchases and shipping"],
+      ["03-command-centre", "Command centre: every licensee at a glance"],
     ]),
   },
 
@@ -596,6 +592,10 @@ export const projects = [
   },
 ];
 
+/* Software (platforms, web apps, mobile apps) shows at most three screens; websites show every page. */
+export const SOFTWARE_SCREENS = 3;
+for (const p of projects) if (p.kind !== "site") p.images = p.images.slice(0, SOFTWARE_SCREENS);
+
 /* Small fixed-shape cover used by the moving wall in the hero and the "What we build" tiles. */
 for (const p of projects) p.thumb = p.images[0].sm.replace("-sm.webp", "-xs.webp");
 
@@ -608,6 +608,6 @@ export function fallbackCover(event, project) {
 export const bySlug = Object.fromEntries(projects.map((p) => [p.slug, p]));
 
 /* Systems featured in the Platforms section, in order. */
-export const showcase = ["mechamanpro", "emr", "bin-sultan-erp", "management-suite", "wheels-and-deals", "bookify", "krayana-near-me"].map((slug) => bySlug[slug]);
+export const showcase = ["mechamanpro", "emr", "shusui-erp", "car-auction-platform", "management-suite", "wheels-and-deals", "bookify", "krayana-near-me"].map((slug) => bySlug[slug]);
 
 export const totalPictures = projects.reduce((n, p) => n + p.images.length, 0);

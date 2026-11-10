@@ -15,7 +15,7 @@ Before October 2026 the site had the company copy but no portfolio. It was then 
 with:
 
 - Platforms and business systems: **MechaManPro** (workshop management for garages), the
-  **Hospital Management System** (HMIS / EMR), the **Bin Sultan Fabrics ERP** and others.
+  **Hospital Management System** (HMIS / EMR), the **Shusui-V4 ERP**, the **Japanese Car Auction Platform** and others.
 - Client websites, online stores, web apps and mobile apps carried over from the LabridTech portfolio
   site (`github.com/LabridTech/portfolio-web`).
 - A Careers section with two vacancies, hardcoded as a concept.
@@ -26,7 +26,7 @@ with:
 products and read like a small company with two products; that was rejected. So:
 
 - The hero carries a moving wall of every project in the portfolio.
-- No section presents two products as the whole offer. The Platforms section rotates through seven
+- No section presents two products as the whole offer. The Platforms section rotates through eight
   systems; in-house products and client systems sit side by side.
 - Sections are backed by real work wherever possible: each industry and each solution suite lists the
   projects behind it.
@@ -63,7 +63,7 @@ src/
     Hero.jsx            headline, the moving wall of project covers, stats row, scrolling client names
     Overview.jsx        "What we build": one tile per kind of work, each with a stack of covers
     About.jsx           About, Services (with the technology list), Industries and Approach sections
-    Products.jsx        Platforms section: a rotating showcase of seven systems, plus the solution suites
+    Products.jsx        Platforms section: a rotating showcase of eight systems, plus the solution suites
     Work.jsx            portfolio grid with category filters and "show all"
     ProjectModal.jsx    project viewer: picture gallery and write-up (native <dialog>)
     Careers.jsx         vacancies
@@ -125,9 +125,9 @@ Other rules:
 All portfolio pictures are stored optimised as WebP at two sizes, plus a small fixed-shape thumbnail of
 each cover for the hero wall.
 
-- **The platforms** (MechaManPro, the Hospital Management System, the Bin Sultan Fabrics ERP) were run
+- **The platforms** (MechaManPro, the Hospital Management System, the Shusui-V4 ERP, the Japanese Car Auction Platform) were run
   on a development machine and photographed there. They are filled with demo data only: no real
-  customer, patient or business records appear in any picture. Figures in the Bin Sultan pictures are
+  customer, patient or business records appear in any picture. Figures in the Shusui-V4 pictures are
   in Pakistani rupees.
 - **Client websites that are still online** were photographed fresh in October 2026.
 - **Everything else** uses the pictures from the earlier portfolio, resized and recompressed.
@@ -173,3 +173,7 @@ publishing. Work in progress goes on a separate branch first.
 - **10 October 2026, second pass.** Reworked to show scale: hero wall of all projects, "What we build"
   overview, Platforms showcase of seven systems in place of two product blocks, solution suites and
   industries backed by named projects, technology list.
+- **10 November 2026.** The ERP was renamed from Bin Sultan Fabrics ERP to **Shusui-V4 ERP** with new
+  pictures; the **Japanese Car Auction Platform** was added to the portfolio and the Platforms showcase.
+  Software (platforms, web apps, mobile apps) now shows at most three screens (`SOFTWARE_SCREENS` in
+  `projects.js`); websites still show every page.

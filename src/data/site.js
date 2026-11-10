@@ -66,10 +66,10 @@ export const technologies = [
 
 /* The four solution suites, each backed by systems from the portfolio (project slugs from projects.js). */
 export const suites = [
-  { icon: "box", title: "Astravane ERP", desc: "Sales, purchasing, stock, payroll and accounts managed in one system.", color: "linear-gradient(135deg,#7B4DFF,#B44DFF)", projects: ["bin-sultan-erp", "mechamanpro", "management-suite"] },
+  { icon: "box", title: "Astravane ERP", desc: "Sales, purchasing, stock, payroll and accounts managed in one system.", color: "linear-gradient(135deg,#7B4DFF,#B44DFF)", projects: ["shusui-erp", "mechamanpro", "management-suite"] },
   { icon: "heart", title: "Astravane Health", desc: "Digital solutions for healthcare providers, billing and management.", color: "linear-gradient(135deg,#FF5C7A,#FF9F43)", projects: ["emr", "access-ability-assist", "the-animal-clinic"] },
   { icon: "ai", title: "Astravane AI", desc: "AI-powered assistants, analytics and decision support inside the product.", color: "linear-gradient(135deg,#2E5EE8,#7B4DFF)", projects: ["mechamanpro", "ai-fitex"] },
-  { icon: "pie", title: "Astravane BI", desc: "Dashboards and reports that turn daily operations into clear numbers.", color: "linear-gradient(135deg,#2E5EE8,#31C6C6)", projects: ["bin-sultan-erp", "emr", "mechamanpro"] },
+  { icon: "pie", title: "Astravane BI", desc: "Dashboards and reports that turn daily operations into clear numbers.", color: "linear-gradient(135deg,#2E5EE8,#31C6C6)", projects: ["shusui-erp", "emr", "mechamanpro"] },
 ];
 
 /* Industries with delivered work. The projects under each one come from the `industry` field in projects.js. */

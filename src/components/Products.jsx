@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Check, Maximize2 } from "lucide-react";
 import Icon from "./icons";
 import { BrowserFrame, Picture } from "./Frame";
-import { bySlug, showcase } from "../data/projects";
+import { bySlug, showcase, SOFTWARE_SCREENS } from "../data/projects";
 import { suites } from "../data/site";
 
 const ROTATE_MS = 7000;
@@ -13,7 +13,7 @@ const screenName = (caption) => caption.split(":")[0];
 /* Real screenshots first; a system that only has an overview picture shows that instead. */
 function screensOf(project) {
   const screens = project.images.filter((i) => i.kind === "screen");
-  return (screens.length ? screens : project.images).slice(0, 5);
+  return (screens.length ? screens : project.images).slice(0, SOFTWARE_SCREENS);
 }
 
 export default function Products({ onOpen }) {
